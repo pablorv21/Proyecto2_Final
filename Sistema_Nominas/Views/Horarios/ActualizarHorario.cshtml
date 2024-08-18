@@ -1,0 +1,88 @@
+﻿@model Sistema_Nominas.Models.HorariosModels
+
+@if (Model == null)
+{
+    <p>Model is null</p>
+    return;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Horario</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Actualizar Horario</h1>
+        <form id="actualizarHorarioForm">
+            <input type="hidden" id="horarioID" name="HorarioID" value="@Model.HorarioID" />
+            <input type="hidden" id="tipoTurnoID" name="TipoTurnoID" value="@Model.TipoTurnoID" />
+            <div class="form-group">
+                <label for="horaInicio">Hora de Inicio</label>
+                <input id="horaInicio" name="HoraInicio" class="form-control" type="time" value="@Model.HoraInicio" required />
+                <span id="horaInicioError" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="horaFin">Hora de Fin</label>
+                <input id="horaFin" name="HoraFin" class="form-control" type="time" value="@Model.HoraFin" required />
+                <span id="horaFinError" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="tipoTurnoID">Tipo de Turno</label>
+                <input id="tipoTurnoID" name="TipoTurnoID" class="form-control" type="text" value="@Model.NombreTurno" readonly />
+                <span id="tipoTurnoIDError" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
+        <div id="mensaje" class="alert mt-3" style="display:none;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#actualizarHorarioForm').on('submit', function (event) {
+                event.preventDefault();
+
+                var horarioData = {
+                    HorarioID: $('#horarioID').val(),
+                    HoraInicio: $('#horaInicio').val(),
+                    HoraFin: $('#horaFin').val(),
+                    TipoTurnoID: $('#tipoTurnoID').val()
+                };
+
+                $.ajax({
+                    url: '@Url.Action("ActualizarHorario", "Horarios")',
+                    type: 'POST',
+                    data: horarioData,
+
+                    success: function (response) {
+                        var mensajeDiv = $('#mensaje');
+                        if (response.success) {
+                            mensajeDiv.removeClass('alert-danger').addClass('alert-success');
+                            mensajeDiv.text(response.message).show();
+                            setTimeout(function () {
+                                window.location.href = '@Url.Action("MenuPrincipal", "Turnos")';
+                            }, 2000); // Redirigir después de 2 segundos
+                        } else {
+                            mensajeDiv.removeClass('alert-success').addClass('alert-danger');
+                            mensajeDiv.text(response.message).show();
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var mensajeDiv = $('#mensaje');
+                        mensajeDiv.removeClass('alert-success').addClass('alert-danger');
+                        mensajeDiv.text('Error al actualizar el horario: ' + error).show();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿@model Sistema_Nominas.Models.EmpleadoViewModel
+
+@if (Model == null)
+{
+    <p>Model is null</p>
+    return;
+}
+
+@{
+    ViewData["Title"] = "Nuevo Role";
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function actualizarRole() {
+            var empleadoModel = {
+                EmpleadoID: $('#Empleado_EmpleadoID').val(),
+                Nombre: $('#Empleado_Nombre').val(),
+                Apellido: $('#Empleado_Apellido').val(),
+                RolID: $('#Empleado_RolID').val()
+            };
+            alert("empleadoModel: " + empleadoModel);
+            alert("empleadoModel: " + empleadoModel.EmpleadoID);
+            alert("empleadoModel: " + empleadoModel.RolID);
+            $.ajax({
+                url: '@Url.Action("ActualizarNuevoRoleJS", "Empleados")',
+                type: 'POST',
+                data: { empId:  empleadoModel.EmpleadoID, 
+                        roleId: empleadoModel.RolID },
+                success: function (response) {
+                    if (response.success) {
+                        alert("Role actualizado correctamente: " + response.message);
+                        location.reload();
+                    } else {
+                        alert("Error al actualizar el role: " + response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Ocurrió un error al intentar actualizar el role: " + error);
+                }
+            });
+        }
+    </script>
+
+}
+
+<h2>Editar Empleado</h2>
+
+<form asp-controller="Empleados" method="post">
+
+    <input type="hidden" asp-for="Empleado.EmpleadoID" id="Empleado_EmpleadoID" />
+
+    <div class="form-group">
+        <label asp-for="Empleado.Nombre"></label>
+        <input asp-for="Empleado.Nombre" class="form-control" id="Empleado_Nombre" readonly />
+        <span asp-validation-for="Empleado.Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Empleado.Apellido"></label>
+        <input asp-for="Empleado.Apellido" class="form-control" id="Empleado_Apellido" readonly/>
+        <span asp-validation-for="Empleado.Apellido" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Empleado.RolID">Role</label>
+        <select asp-for="Empleado.RolID" class="form-control" id="Empleado_RolID" asp-items="Model.Roles"></select>
+        <span asp-validation-for="Empleado.RolID" class="text-danger"></span>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary" onclick="actualizarRole()">Actualizar Role</button>
+</form>

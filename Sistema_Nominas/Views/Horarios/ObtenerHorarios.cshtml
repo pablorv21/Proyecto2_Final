@@ -1,0 +1,40 @@
+﻿@model List<CalendarViews>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/locales-all.min.js"></script>
+</head>
+<body>
+    <h2>Calendario de Horarios y Ausencias</h2>
+
+    <div id="calendar"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var events = @Html.Raw(Json.Serialize(Model));
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'es',
+                events: events.map(event => ({
+                    title: event.NombreTurno,
+                    start: event.Fecha + 'T' + (event.HoraInicio ? event.HoraInicio : '00:00:00'),
+                    end: event.Fecha + 'T' + (event.HoraFin ? event.HoraFin : '23:59:59'),
+                    color: event.TipoEvento === 'Horario' ? '#FF5733' :
+                        event.TipoEvento === 'Día Libre' ? '#3498DB' :
+                            '#2ECC71'
+                })),
+                editable: false,
+                selectable: true
+            });
+
+            calendar.render();
+        });
+    </script>
+</body>
+</html>

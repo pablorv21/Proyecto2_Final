@@ -1,0 +1,47 @@
+﻿@model List<Sistema_Nominas.Models.HorariosModels>
+@{
+    ViewData["Title"] = "Horarios";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>@ViewData["Title"]</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Hora de Inicio</th>
+                    <th>Hora de Fin</th>
+                    <th>Tipo de Turno</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var horario in Model)
+                {
+                    <tr>
+                        <td>@horario.HorarioID</td>
+                        <td>@horario.Fecha.ToString("yyyy-MM-dd")</td>
+                        <td>@horario.HoraInicio.ToString(@"hh\:mm")</td>
+                        <td>@horario.HoraFin.ToString(@"hh\:mm")</td>
+                        <td>@horario.NombreTurno</td>
+                        <td>
+                            <a href="@Url.Action("ActualizarHorario", "Horarios", new { horarios = horario.HorarioID })" class="btn btn-primary">Actualizar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

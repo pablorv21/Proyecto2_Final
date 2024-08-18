@@ -1,0 +1,38 @@
+﻿@model List<PermisoModel>
+
+<h2>Selección de Permisos</h2>
+
+<form asp-action="GuardarPermisos" asp-controller="PermisosEmpleado" method="post">
+    <div class="form-group">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Seleccionar</th>
+                    <th>Nombre del Permiso</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" asp-for="@Model[i].IsSelected" />
+                            <input type="hidden" asp-for="@Model[i].PermisoId" />
+                        </td>
+                        <td>@Model[i].PermisoName</td>
+                        <td>@Model[i].Descripcion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group">
+        <input type="hidden" name="empleadoID" value="@ViewBag.EmpleadoID" />
+        <input type="submit" value="Guardar Permisos" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

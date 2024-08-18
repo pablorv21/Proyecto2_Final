@@ -1,0 +1,242 @@
+﻿@model Sistema_Nominas.Models.TurnosModel
+@{
+    ViewData["Title"] = "Crear Turno";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Sistema de Nóminas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4e73df;
+            --secondary-color: #858796;
+            --background-color: #f8f9fc;
+            --hover-color: #eaecf4;
+            --text-color: #5a5c69;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .sidebar {
+            height: 100vh;
+            background-color: var(--primary-color);
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .sidebar-brand {
+            height: 4.375rem;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 800;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            letter-spacing: 0.05rem;
+            z-index: 1;
+        }
+
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            border-radius: 0.35rem;
+            margin: 0.2rem 1rem;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .sidebar-heading {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.4);
+            padding: 1rem;
+        }
+
+        .sidebar .submenu {
+            padding-left: 1rem;
+        }
+
+        .sidebar .submenu .nav-link {
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .main-menu-item i {
+            margin-right: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .page-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-content {
+            padding: 2rem;
+        }
+
+        .card {
+            border: none;
+            border-radius: 0.35rem;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        }
+
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-bottom: none;
+        }
+
+        @@media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .sidebar.show {
+                left: 0;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-brand text-white">
+                <i class="fas fa-laugh-wink"></i>
+                <span>SisNóminas</span>
+            </div>
+            <div class="sidebar-sticky">
+                <h6 class="sidebar-heading">Administración</h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link main-menu-item" href="@Url.Action("Index", "Home")"><i class="fas fa-home"></i>Menú Principal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active main-menu-item" href="#" data-bs-toggle="collapse" data-bs-target="#turnos-submenu">
+                            <i class="fas fa-clock"></i>Administración Turnos
+                        </a>
+                        <ul class="nav flex-column collapse show submenu" id="turnos-submenu">
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("ListadoTurnos", "Turnos")">Listar Los Turnos</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="@Url.Action("CreacionTurnos","Turnos")">Crear Turno</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link main-menu-item" href="#" data-bs-toggle="collapse" data-bs-target="#horarios-submenu">
+                            <i class="fas fa-calendar-alt"></i>Administración De Horarios
+                        </a>
+                        <ul class="nav flex-column collapse submenu" id="horarios-submenu">
+                            <li class="nav-item"><a class="nav-link" href="#">Ingreso De Turno</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Submenú 2</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Submenú 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link main-menu-item" href="#"><i class="fas fa-user-clock"></i>Gestión de Jornadas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link main-menu-item" href="#"><i class="fas fa-chart-bar"></i>Reportes</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main role="main" class="flex-grow-1 main-content">
+            <button id="sidebarToggle" class="btn btn-primary d-md-none mb-3">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="page-title">@ViewData["Title"]</h1>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h2 class="mb-0">Crear Nuevo Turno</h2>
+                </div>
+                <div class="card-body">
+                    <form id="crearTurnoForm">
+                        <div class="mb-3">
+                            <label for="NombreTurnno" class="form-label">Nombre del Turno</label>
+                            <input type="text" class="form-control" id="NombreTurnno" name="NombreTurnno" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="DescriptcionTurnno" class="form-label">Descripción del Turno</label>
+                            <textarea class="form-control" id="DescriptcionTurnno" name="DescriptcionTurnno" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Crear Turno</button>
+                    </form>
+                </div>
+            </div>
+            <div id="responseMessage" class="mt-3"></div>
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.nav-link').on('click', function () {
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            $('#sidebarToggle').on('click', function () {
+                $('#sidebar').toggleClass('show');
+            });
+
+            $(window).resize(function () {
+                if ($(window).width() > 768) {
+                    $('#sidebar').removeClass('show');
+                }
+            });
+
+            $("#crearTurnoForm").submit(function (e) {
+                e.preventDefault();
+                var formData = $(this).serialize();
+                $.ajax({
+                    url: '@Url.Action("CreacionTurnos", "Turnos")',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        if (response.success) {
+                            $("#responseMessage").html('<div class="alert alert-success">Turno creado correctamente</div>');
+                            setTimeout(function () {
+                                window.location.href = '@Url.Action("MenuPrincipal", "Turnos")';
+                            }, 2000);
+                        } else {
+                            $("#responseMessage").html('<div class="alert alert-danger">' + response.message + '</div>');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        $("#responseMessage").html('<div class="alert alert-danger">Error: ' + error + '</div>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

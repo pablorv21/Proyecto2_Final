@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Menú Principal de Administración de Nóminas";
+}
+
+<!-- Estilos CSS dentro de la misma página -->
+<style>
+    /* Estilos para el Sidebar */
+    #sidebar-wrapper {
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 250px;
+        background-color: #f8f9fa;
+        padding-top: 1rem;
+        border-right: 1px solid #dee2e6;
+    }
+
+        #sidebar-wrapper .list-group-item {
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+            #sidebar-wrapper .list-group-item:hover {
+                background-color: #e9ecef;
+                color: #495057;
+            }
+
+    /* Ajuste del Contenido Principal */
+    .col-md-9 {
+        margin-left: 250px;
+        padding: 20px;
+    }
+
+    .container-fluid {
+        padding: 20px;
+    }
+
+    .sidebar-heading {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #dee2e6;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 bg-light" id="sidebar-wrapper">
+            <div class="sidebar-heading">Administrar Nóminas</div>
+            <div class="list-group list-group-flush">
+                <a href="@Url.Action("VerSalarios", "Salarios")" class="list-group-item list-group-item-action bg-light">Crear Concepto</a>
+                <a href="@Url.Action("AgregarNomina", "Nominas")" class="list-group-item list-group-item-action bg-light">Añadirle Nomina al Colaborador</a>
+                <a href="@Url.Action("GenerarConceptos", "Nominas")" class="list-group-item list-group-item-action bg-light">Generación Automática de Conceptos</a>
+                
+                <!-- Añadir más opciones de menú aquí -->
+            </div>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="col-md-9">
+            <h1 class="text-center">@ViewData["Title"]</h1>
+            <p class="text-center">Seleccione una opción del menú para comenzar a administrar las nóminas de la empresa.</p>
+        </div>
+    </div>
+</div>

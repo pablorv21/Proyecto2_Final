@@ -1,0 +1,247 @@
+﻿@model Sistema_Nominas.Models.EmpleadoViewModel
+
+@if (Model == null)
+{
+    <p>Model is null</p>
+    return;
+}
+
+@{
+    ViewData["Title"] = "Editar Empleado";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+    :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --success-color: #2ecc71;
+        --danger-color: #e74c3c;
+        --light-gray: #ecf0f1;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--light-gray);
+    }
+
+    .employee-form-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+    }
+
+    .form-title {
+        color: var(--secondary-color);
+        text-align: center;
+        margin-bottom: 2rem;
+        font-weight: 300;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: var(--secondary-color);
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+        }
+
+        .form-control.is-invalid {
+            border-color: var(--danger-color);
+        }
+
+    .text-danger {
+        color: var(--danger-color);
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+    }
+
+    .btn-primary {
+        background-color: var(--primary-color);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+    }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+    .input-icon {
+        position: relative;
+    }
+
+        .input-icon i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        .input-icon input {
+            padding-left: 35px;
+        }
+
+    @@media (max-width: 768px) {
+        .employee-form-container {
+            padding: 1rem;
+        }
+    }
+</style>
+
+<div class="employee-form-container">
+    <h2 class="form-title">
+        <i class="fas fa-user-edit"></i> Editar Empleado
+    </h2>
+
+    <form asp-action="ActualizarEmpleado" asp-controller="Empleados" method="post" id="employeeForm">
+        <input type="hidden" asp-for="Empleado.EmpleadoID" id="Empleado_EmpleadoID" />
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="Empleado.Nombre" class="form-label">Nombre</label>
+                <div class="input-icon">
+                    <i class="fas fa-user"></i>
+                    <input asp-for="Empleado.Nombre" class="form-control" id="Empleado_Nombre" placeholder="Ingrese el nombre" />
+                </div>
+                <span asp-validation-for="Empleado.Nombre" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="Empleado.Apellido" class="form-label">Apellido</label>
+                <div class="input-icon">
+                    <i class="fas fa-user"></i>
+                    <input asp-for="Empleado.Apellido" class="form-control" id="Empleado_Apellido" placeholder="Ingrese el apellido" />
+                </div>
+                <span asp-validation-for="Empleado.Apellido" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="Empleado.CorreoElectronico" class="form-label">Correo Electrónico</label>
+                <div class="input-icon">
+                    <i class="fas fa-envelope"></i>
+                    <input asp-for="Empleado.CorreoElectronico" class="form-control" id="Empleado_CorreoElectronico" placeholder="correo@ejemplo.com" />
+                </div>
+                <span asp-validation-for="Empleado.CorreoElectronico" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="Empleado.Telefono" class="form-label">Teléfono</label>
+                <div class="input-icon">
+                    <i class="fas fa-phone"></i>
+                    <input asp-for="Empleado.Telefono" class="form-control" id="Empleado_Telefono" placeholder="Ingrese el teléfono" />
+                </div>
+                <span asp-validation-for="Empleado.Telefono" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Empleado.Direccion" class="form-label">Dirección</label>
+            <div class="input-icon">
+                <i class="fas fa-home"></i>
+                <input asp-for="Empleado.Direccion" class="form-control" id="Empleado_Direccion" placeholder="Ingrese la dirección" />
+            </div>
+            <span asp-validation-for="Empleado.Direccion" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="Empleado.RolID" class="form-label">Rol</label>
+                <div class="input-icon">
+                    <i class="fas fa-user-tag"></i>
+                    <select asp-for="Empleado.RolID" class="form-control" id="Empleado_RolID" asp-items="Model.Roles"></select>
+                </div>
+                <span asp-validation-for="Empleado.RolID" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="Empleado.Cedula" class="form-label">Cédula</label>
+                <div class="input-icon">
+                    <i class="fas fa-id-card"></i>
+                    <input asp-for="Empleado.Cedula" class="form-control" id="Empleado_Cedula" placeholder="Ingrese la cédula" />
+                </div>
+                <span asp-validation-for="Empleado.Cedula" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group text-center mt-4">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Actualizar Empleado
+            </button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('employeeForm');
+            form.addEventListener('submit', function (event) {
+                if (!validateForm()) {
+                    event.preventDefault();
+                }
+            });
+
+            function validateForm() {
+                let isValid = true;
+                const fields = form.querySelectorAll('input, select');
+
+                fields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('is-invalid');
+                    } else {
+                        field.classList.remove('is-invalid');
+                    }
+                });
+
+                if (!isValid) {
+                    alert('Por favor, complete todos los campos obligatorios.');
+                }
+
+                return isValid;
+            }
+
+            // Validaciones específicas
+            const nameRegex = /^[a-zA-Z\s]+$/;
+            const phoneRegex = /^[0-9]+$/;
+
+            form.querySelector('#Empleado_Nombre').addEventListener('input', function () {
+                this.classList.toggle('is-invalid', !nameRegex.test(this.value));
+            });
+
+            form.querySelector('#Empleado_Apellido').addEventListener('input', function () {
+                this.classList.toggle('is-invalid', !nameRegex.test(this.value));
+            });
+
+            form.querySelector('#Empleado_Telefono').addEventListener('input', function () {
+                this.classList.toggle('is-invalid', !phoneRegex.test(this.value));
+            });
+        });
+    </script>
+}

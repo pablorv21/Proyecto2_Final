@@ -1,0 +1,86 @@
+﻿@model ConceptoNominaModel
+
+@{
+    ViewData["Title"] = "Agregar Nuevo Concepto";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nuevo Horario</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form id="crearConceptoForm">
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" id="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                    <div class="form-group">
+                        <label asp-for="TipoNomina" class="control-label"></label>
+                        <select asp-for="TipoNomina" id="TipoNomina" class="form-control">
+                            <option value="">-- Selecciona un Tipo de Nómina --</option>
+                            <option value="Ingreso">Ingreso</option>
+                            <option value="Deducción">Deducción</option>
+                            <option value="Impuesto">Impuesto</option>
+                        </select>
+                        <span asp-validation-for="TipoNomina" class="text-danger"></span>
+                    </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Agregar" class="btn btn-primary" />
+                </div>
+            </form>
+
+            <div id="mensaje" class="alert" style="display:none;"></div>
+
+            <div class="text-center mt-3">
+                <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#crearConceptoForm').on('submit', function (event) {
+            event.preventDefault();
+
+            var concepto = {
+                Nombre: $('#Nombre').val(),
+                TipoNomina: $('#TipoNomina').val()
+            };
+            alert(concepto);
+            $.ajax({
+                url: '@Url.Action("CrearConceptoNominal", "Nominas")',
+                type: 'POST',
+                data: concepto,
+                success: function (response) {
+                    if (response.success) {
+                        alert("Creado Correctamente");
+                        // Aquí puedes redirigir o limpiar el formulario
+
+                    } else {
+                        $('#mensaje').removeClass('alert-success').addClass('alert-danger').text(response.message).show();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    $('#mensaje').removeClass('alert-success').addClass('alert-danger').text('Error al crear el concepto: ' + error).show();
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

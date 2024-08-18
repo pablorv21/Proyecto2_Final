@@ -1,0 +1,89 @@
+﻿@model Sistema_Nominas.Models.HorarioModelView
+
+@if (Model == null)
+{
+    <p>Model is null</p>
+    return;
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nuevo Horario</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Crear Nuevo Horario</h1>
+        <form id="crearHorarioForm">
+            <div class="form-group">
+                <label asp-for="Horarios.HoraInicio">Hora de Inicio</label>
+                <input id="horaInicio" name="HoraInicio" class="form-control" type="time" required />
+                <span asp-validation-for="Horarios.HoraInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Horarios.HoraFin">Hora de Fin</label>
+                <input id="horaFin" name="HoraFin" class="form-control" type="time" required />
+                <span asp-validation-for="Horarios.HoraFin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Horarios.TipoTurnoID">Tipo de Turno</label>
+                <select id="tipoTurnoID" name="TipoTurnoID" class="form-control" required>
+                    @foreach (var item in Model.Turnos)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
+                <span asp-validation-for="Horarios.TipoTurnoID" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Crear</button>
+        </form>
+        <div id="mensaje" class="alert mt-3" style="display:none;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#crearHorarioForm').on('submit', function (event) {
+                event.preventDefault();
+
+                var horarioData = {
+                    HoraInicio: $('#horaInicio').val(),
+                    HoraFin: $('#horaFin').val(),
+                    TipoTurnoID: $('#tipoTurnoID').val()
+                };
+               
+                $.ajax({
+                    url: '@Url.Action("CrearHorario", "Horarios")',
+                    type: 'POST',
+                    data: horarioData,
+              
+                    success: function (response) {
+                        var mensajeDiv = $('#mensaje');
+                        if (response.success) {
+                            alert("Creado Correctamente");
+                            window.location.href = '@Url.Action("MenuPrincipal", "Turnos")';
+                            //mensajeDiv.removeClass('alert-danger').addClass('alert-success');
+                        } else {
+                            mensajeDiv.removeClass('alert-success').addClass('alert-danger');
+                        }
+                        mensajeDiv.text(response.message).show();
+                    },
+                    error: function (xhr, status, error) {
+                        var mensajeDiv = $('#mensaje');
+                        mensajeDiv.removeClass('alert-success').addClass('alert-danger');
+                        mensajeDiv.text('Error al crear el horario: ' + error).show();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

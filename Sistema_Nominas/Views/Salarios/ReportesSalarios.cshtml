@@ -1,0 +1,56 @@
+﻿@model List<SalarioEmpleadoModel>
+
+<h2>Reporte de Salarios</h2>
+
+<canvas id="salariosChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Serializamos el modelo de C# a un formato que JavaScript pueda entender
+    var salariosData = @Html.Raw(Json.Serialize(Model));
+
+    // Verificar si los datos están correctamente pasando
+    console.log(salariosData); // Para ver los datos en la consola del navegador
+
+    // Mapeamos los datos para el gráfico
+    var labels = salariosData.map(function (item) {
+        return item.nombre_Empleado; // Utilizamos el campo 'nombre_Empleado' como etiqueta
+    });
+
+    var data = salariosData.map(function (item) {
+        return item.salarioBase / 1000; // Convertir los salarios a miles para el gráfico
+    });
+
+    // Verificar si las etiquetas y los datos se están generando correctamente
+    console.log(labels);
+    console.log(data);
+
+    // Configurar el gráfico
+    var ctx = document.getElementById('salariosChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar', // Tipo de gráfico de barras
+        data: {
+            labels: labels, // Etiquetas del eje X
+            datasets: [{
+                label: 'Salario Base (en miles)',
+                data: data, // Valores del salario
+                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de las barras
+                borderColor: 'rgba(75, 192, 192, 1)', // Color del borde de las barras
+                borderWidth: 1 // Grosor del borde
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true, // Comenzar desde 0 en el eje Y
+                    ticks: {
+                        callback: function (value) {
+                            return value + 'k'; // Mostrar los valores en miles
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>

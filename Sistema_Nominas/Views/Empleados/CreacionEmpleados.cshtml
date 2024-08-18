@@ -1,0 +1,98 @@
+﻿@model Sistema_Nominas.Models.EmpleadoViewModel
+@{
+    ViewData["Title"] = "Crear Nuevo Empleado";
+    Layout = "_Layout"; // Asegúrate de que tienes un layout adecuado
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Crear Nuevo Empleado</h4>
+                </div>
+                <div class="card-body">
+                    @if (Model == null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            Error: No se pudo cargar la información del formulario.
+                        </div>
+                    }
+                    else
+                    {
+                        <form asp-action="CreacionEmpleados" method="post">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="Empleado.Nombre" class="form-label"></label>
+                                    <input asp-for="Empleado.Nombre" class="form-control" placeholder="Ingrese el nombre" />
+                                    <span asp-validation-for="Empleado.Nombre" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="Empleado.Apellido" class="form-label"></label>
+                                    <input asp-for="Empleado.Apellido" class="form-control" placeholder="Ingrese el apellido" />
+                                    <span asp-validation-for="Empleado.Apellido" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Empleado.CorreoElectronico" class="form-label"></label>
+                                <input asp-for="Empleado.CorreoElectronico" class="form-control" placeholder="ejemplo@correo.com" />
+                                <span asp-validation-for="Empleado.CorreoElectronico" class="text-danger"></span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="Empleado.Telefono" class="form-label"></label>
+                                    <input asp-for="Empleado.Telefono" class="form-control" placeholder="123-456-7890" />
+                                    <span asp-validation-for="Empleado.Telefono" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="Empleado.Cedula" class="form-label"></label>
+                                    <input asp-for="Empleado.Cedula" class="form-control" placeholder="Ingrese la cédula" />
+                                    <span asp-validation-for="Empleado.Cedula" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Empleado.Direccion" class="form-label"></label>
+                                <textarea asp-for="Empleado.Direccion" class="form-control" rows="3" placeholder="Ingrese la dirección completa"></textarea>
+                                <span asp-validation-for="Empleado.Direccion" class="text-danger"></span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="Empleado.FechaContratacion" class="form-label"></label>
+                                    <input asp-for="Empleado.FechaContratacion" class="form-control" type="date" />
+                                    <span asp-validation-for="Empleado.FechaContratacion" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="Empleado.RolID" class="form-label">Rol</label>
+                                    <select asp-for="Empleado.RolID" class="form-select" asp-items="Model.Roles"></select>
+                                    <span asp-validation-for="Empleado.RolID" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 mt-4">
+                                <button type="submit" class="btn btn-primary">Crear Empleado</button>
+                                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function() {
+                $(this).find(':submit').attr('disabled', 'disabled');
+            });
+        });
+    </script>
+}

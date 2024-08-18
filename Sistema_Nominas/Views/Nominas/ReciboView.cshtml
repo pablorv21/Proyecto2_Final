@@ -1,0 +1,14 @@
+﻿@model NominaViewModel
+
+<h2>Recibo de Nómina</h2>
+
+<!-- Información de la nómina (opcional, si deseas mostrarla en la vista) -->
+<p>Empleado: @Model.NombreEmpleado</p>
+<p>Fecha Inicio: @Model.PeriodoInicio.ToString("dd/MM/yyyy")</p>
+<p>Fecha Fin: @Model.PeriodoFin.ToString("dd/MM/yyyy")</p>
+<p>Salario Base: @Model.SalarioBase.ToString("C")</p>
+<p>Total Ingresos: @Model.TotalIngresos.ToString("C")</p>
+<p>Total Deducciones: @Model.TotalDeducciones.ToString("C")</p>
+<p>Total Neto: @Model.TotalNeto.ToString("C")</p>
+
+<a href="@Url.Action("DescargarRecibo", "Nomina", new { nominaID = Model.NominaID })" class="btn btn-primary">Descargar Recibo en PDF</a>

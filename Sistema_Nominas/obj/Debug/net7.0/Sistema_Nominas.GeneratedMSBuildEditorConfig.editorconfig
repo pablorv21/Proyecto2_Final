@@ -1,0 +1,191 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Sistema_Nominas
+build_property.RootNamespace = Sistema_Nominas
+build_property.ProjectDir = C:\Users\JP\Documents\Proyecto 2\Sistema_Nominas\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\JP\Documents\Proyecto 2\Sistema_Nominas
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Desempeno/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzZW1wZW5vXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Desempeno/MenuPrincipal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzZW1wZW5vXE1lbnVQcmluY2lwYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Desempeno/Nuevo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzZW1wZW5vXE51ZXZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Desempeno/ObservarEvalaciones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzZW1wZW5vXE9ic2VydmFyRXZhbGFjaW9uZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/DiasLibres/AsignarDiasLibres.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhc0xpYnJlc1xBc2lnbmFyRGlhc0xpYnJlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Empleados/ActualizarEmpleado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zXEFjdHVhbGl6YXJFbXBsZWFkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Empleados/ActualizarRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zXEFjdHVhbGl6YXJSb2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Empleados/CreacionEmpleados.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zXENyZWFjaW9uRW1wbGVhZG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Empleados/EmpleadoPerfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zXEVtcGxlYWRvUGVyZmlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Empleados/Empleados.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zXEVtcGxlYWRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Empleados/InformacionEmpleado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zXEluZm9ybWFjaW9uRW1wbGVhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Empleados/RespadoPerfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zXFJlc3BhZG9QZXJmaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Horarios/ActualizarHorario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXJpb3NcQWN0dWFsaXphckhvcmFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Horarios/AsignacionDiasLibres.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXJpb3NcQXNpZ25hY2lvbkRpYXNMaWJyZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Horarios/AsignarHorario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXJpb3NcQXNpZ25hckhvcmFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Horarios/NuevoHorario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXJpb3NcTnVldm9Ib3JhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Horarios/ObtenerHorarios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXJpb3NcT2J0ZW5lckhvcmFyaW9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Horarios/VerHorarios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXJpb3NcVmVySG9yYXJpb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Nominas/AdministracionNominal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9taW5hc1xBZG1pbmlzdHJhY2lvbk5vbWluYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Nominas/AgregarNomina.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9taW5hc1xBZ3JlZ2FyTm9taW5hLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Nominas/Generar_Nominas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9taW5hc1xHZW5lcmFyX05vbWluYXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Nominas/MenuPrincipal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9taW5hc1xNZW51UHJpbmNpcGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Nominas/Nominas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9taW5hc1xOb21pbmFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Nominas/ReciboView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9taW5hc1xSZWNpYm9WaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/PermisosEmpleado/AnadirPermisos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NFbXBsZWFkb1xBbmFkaXJQZXJtaXNvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/PermisosEmpleado/Permisos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NFbXBsZWFkb1xQZXJtaXNvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Salarios/AgregarRebajos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsYXJpb3NcQWdyZWdhclJlYmFqb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Salarios/AgregarSalario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsYXJpb3NcQWdyZWdhclNhbGFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Salarios/GenerarNomina.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsYXJpb3NcR2VuZXJhck5vbWluYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Salarios/MenuPrincipal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsYXJpb3NcTWVudVByaW5jaXBhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Salarios/ReportesSalarios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsYXJpb3NcUmVwb3J0ZXNTYWxhcmlvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Salarios/VerSalarios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsYXJpb3NcVmVyU2FsYXJpb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Turnos/ActualizarTurno.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9zXEFjdHVhbGl6YXJUdXJuby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Turnos/CreacionTurnos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9zXENyZWFjaW9uVHVybm9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Turnos/ListadoTurnos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9zXExpc3RhZG9UdXJub3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Turnos/MenuPrincipal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9zXE1lbnVQcmluY2lwYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JP/Documents/Proyecto 2/Sistema_Nominas/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-o771ld7we1
